@@ -1,0 +1,5 @@
+{
+    "editor.stickyTabStops": true,
+    "emmet.triggerExpansionOnTab": true,
+    "editor.acceptSuggestionOnEnter": "smart"
+}
