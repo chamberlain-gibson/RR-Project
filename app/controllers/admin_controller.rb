@@ -17,8 +17,6 @@ REFERENCES
 
 class AdminController < ApplicationController
 
-end
-
 layout 'admin'
     before_action :authenticate_admin!
 

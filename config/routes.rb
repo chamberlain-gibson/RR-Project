@@ -8,7 +8,7 @@ REFERENCES
 
 4. Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. (2020, November 15). Tailwindcss.com; Tailwind CSS. https://tailwindcss.com/
 
-‌5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/REFERENCESs/more/what-are-payment-rails
+‌5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/resources/more/what-are-payment-rails
 
 6. PostgreSQL Tutorial. (2021). Postgresqltutorial.com. https://www.postgresqltutorial.com/
 
@@ -18,12 +18,11 @@ REFERENCES
 # Routes file for all the links 
 Rails.application.routes.draw do
   namespace :admin do #admin route
-    REFERENCESs :orders #orders
-    REFERENCESs :products #products 
-    do 
-      REFERENCESs :stocks # nested stocks routes in products 
+      resources :orders #orders
+      resources :products do 
+    resources :stocks # nested stocks routes in products 
     end
-    REFERENCESs :categories #categories 
+    resources :categories #categories 
   end
   devise_for :admins # devise method for the admin
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -41,4 +40,5 @@ Rails.application.routes.draw do
    # After sign in the user is taken to the admin index
    get "admin" => "admin#index"
 
+  
   end
