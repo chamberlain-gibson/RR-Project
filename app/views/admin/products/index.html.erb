@@ -21,8 +21,7 @@
                 px-6 py-4 text-left">Name</th>
                 <th scope= "col" class= "text-sm font-medium text-gray-800
                 px-6 py-4 text-left">Description</th>
-              </tr>
-              <th scope= "col" class= "text-sm font-medium text-gray-800
+                <th scope= "col" class= "text-sm font-medium text-gray-800
                 px-6 py-4 text-left">Price</th>
               </tr>
               </thead>
@@ -43,14 +42,16 @@
                   </td>
                   <td class = "px-6 py-4 whitespace-nowrap tex-sm font-medium
                   text-gray-800">
-                  $<%= (p.price/100.0).to_s%>
+                  $<%= (p.price).to_d %>
                   </td>
-                  </tr>
-                <%end%>
-                </tbody>
+                </tr>
+                <% end %>
+              </tbody>
             </table>
           </div>
         </div>
       </div>
     </div>
-    </div>
+
+
+</div>
