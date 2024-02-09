@@ -18,7 +18,7 @@ REFERENCES
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project</title>
+    <title>Rivers Rise</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -29,7 +29,9 @@ REFERENCES
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <%= render "shared/navbar"%>
+    <%# Adjusting padding of the home page %>
+    <main class="container mx-auto mt-28 max-w-7xl px-2 sm:px-6 lg:px-8">
       <%= yield %>
     </main>
   </body>

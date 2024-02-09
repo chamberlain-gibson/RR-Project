@@ -40,5 +40,7 @@ Rails.application.routes.draw do
    # After sign in the user is taken to the admin index
    get "admin" => "admin#index"
 
+
+   get "category" => "category#index"
   
   end

@@ -15,8 +15,14 @@ REFERENCES
 7. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
 =end
 
+=begin
+Takes 4 random of the stored categories for the user to view
+=end
+
 class HomeController < ApplicationController
     def index
+     
+        @main_categories = Category.take(4)
     end
 
 
