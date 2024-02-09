@@ -16,6 +16,7 @@ REFERENCES
 =end
 
 =begin
+Home Controller
 Takes 4 random of the stored categories for the user to view
 =end
 
