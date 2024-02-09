@@ -36,11 +36,12 @@ export default class extends Controller {
     console.log("Hello from controller")
   } */
   
+  static values = {revenue: Array}
+
   initialize() {
-    //dummy data 
-    const data = [10, 20, 30, 40, 50, 60, 70] 
-    const labels = ["Mon", "Tues", "Wed", "Thurs", "Fri",
-    "Sat", "Sun"]
+    /*Getting the Revenue data for the chart on the Admin dashboard */ 
+    const data = this.revenueValue.map((item) => item[1]/100.0)
+    const labels = this.revenueValue.map((item) => item[0])
 
     const context = document.getElementById('revenueChart')
 
@@ -63,4 +64,32 @@ export default class extends Controller {
   })
 }
 }
+
+  /*
+    //dummy data 
+    const data = this.revenueValue.map((item) => item)
+    const labels = ["Mon", "Tues", "Wed", "Thurs", "Fri",
+    "Sat", "Sun"]
+
+    const context = document.getElementById('revenueChart')
+
+    new Chart(context, {
+      type: 'line',
+      data: {labels: labels,
+        datasets: [{
+          label: 'Revenue $',
+          data: data,
+          borderWidth: 3,
+          fill: true,}]
+      },
+      options: {
+        plugins: {legend: {display: false} },
+      scales: 
+        {x:{grid:{display: false}}, 
+        y: {border:{dash: [5,5]}, grid:{color: "#d4f3ef"},
+        beginAtZero: true}}
+        }  
+  })
+}*/
+
 

@@ -15,7 +15,20 @@ REFERENCES
 7. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
 #%>
 
+
+
+
+<%# 
+    This is the Admin index page. 
+    In routes: admin#index
+%>
+
 <h1>Admin Home</h1>
+
+<%# 
+    Passing revenue, total sales, average sales, each item per sale from the admin controller to 
+    populate the dashboard on the Admin home page creating a Daily Stats view 
+%>
 
 <div class = "flex justify-betweem flex-wrap mt-8 w-full items-center max-w-4xl">
     <h2 class = "text-2xl text-gray-800 font-medium mb-4">Daily Stats</h2>
@@ -57,11 +70,60 @@ REFERENCES
         </div>        
     </div>
 
+<%#
+    Adding some padding to the chart from tailwind.
+    The data from dashboard_controller.js is being pushed by Stimulus & Chart.js    
+%>
 
-<%#Connects dashboard controller to the Admin index%>
-<div data-controller= "dashboard">
-    <canvas id="revenueChart"></canvas>
+<div class="my-8 w-full">
+    <h2 class = "text-2xl text-gray-800 font-medium mb-4">Revenue</h2>
+    
+    <%#Connects dashboard controller to the Admin index%>
+    <div class="w-full" data-controller= "dashboard" 
+    data-dashboard-revenue-value="<%= @revenue_by_day.to_json %>">
+        <canvas id="revenueChart"></canvas>
+    </div>
+</div>
+
+<%#
+    Creating a table for the Admin user to view the orders   
+%>
+<div class= "flex flex-col w-full">
+    <h2 class = "text-2xl text-gray-800 mb-4 font-mdeium">Recent Unfulfilled Orders</h2>
+    <div class= "overflow-x-auto">
+        <table class= "min-w-full bg-gray-100" style= "border collapse: separate; border-spacing: 0">
+            <thead>
+                <tr class = "text-gray-800">
+                    <th class="px-6 py-3 border-b-200 bg-gray-100">Order ID</th>
+            
+                    <th class="px-6 py-3 border-b-200 bg-gray-100">Customer</th>
+            
+                    <th class="px-6 py-3 border-b-200 bg-gray-100">Date</th>
+            
+                    <th class="px-6 py-3 border-b-200 bg-gray-100">Amount</th>
+                </tr>
+            </thead>
+            <tbody class = "text-gray-700">
+                <% @orders.each do |order| %> <%# for each order it will create a row %>
+                    <tr> <%# filling in the table with new data from the Orders %>
+                        <td class= "px-6 py-4 border-b border-gray-200">
+                            <%= link_to order.id, admin_order_path(order), class:
+                            "underline" %>
+                        </td>
+                        <td class= "px-6 py-4 border-b border-gray-200">
+                            <%= order.customer_email %>
+                        </td>
+                        <td class= "px-6 py-4 border-b border-gray-200">
+                            <%= order.created_at.strftime("%B %d, %Y %H:%M") %>
+                        </td>
+                        <td class= "px-6 py-4 border-b border-gray-200">
+                            <%=  (order.total/100.00).to_s %>
+                        </td>
+                    </tr>
+                <%end%>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
-</div>
