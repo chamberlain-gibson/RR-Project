@@ -1,10 +1,6 @@
-## Rivers Rise: Woodworking and Macrame
+/*
+REFERENCES
 
-Ruby on Rails E-Commerce Website.
-Working with Rails, Hotwire, Tailwind CSS, Stripe, and Postgresql.
-
-
-## REFERENCES
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)
 
 2. Sreeram Venkitesh. (2022, October 13). How To Set Up User Authentication with Devise in a Rails 7 Application. Digitalocean.com; DigitalOcean. https://www.digitalocean.com/community/tutorials/how-to-set-up-user-authentication-with-devise-in-a-rails-7-application
@@ -23,6 +19,48 @@ Working with Rails, Hotwire, Tailwind CSS, Stripe, and Postgresql.
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
 
-‌
 
-‌
+*/
+
+// Stimulus dashboard controller 
+// Connnects to any object & connects to dashboard
+import { Controller } from "@hotwired/stimulus"
+import {Chart, registerables} from 'chart.js'
+
+Chart.register(...registerables)
+
+// Connects to data-controller="dashboard"
+export default class extends Controller {
+  /*connect(){
+    // testing controller 
+    console.log("Hello from controller")
+  } */
+  
+  initialize() {
+    //dummy data 
+    const data = [10, 20, 30, 40, 50, 60, 70] 
+    const labels = ["Mon", "Tues", "Wed", "Thurs", "Fri",
+    "Sat", "Sun"]
+
+    const context = document.getElementById('revenueChart')
+
+    new Chart(context, {
+      type: 'line',
+      data: {labels: labels,
+        datasets: [{
+          label: 'Revenue $',
+          data: data,
+          borderWidth: 3,
+          fill: true,}]
+      },
+      options: {
+        plugins: {legend: {display: false} },
+      scales: 
+        {x:{grid:{display: false}}, 
+        y: {border:{dash: [5,5]}, grid:{color: "#d4f3ef"},
+        beginAtZero: true}}
+        }  
+  })
+}
+}
+
