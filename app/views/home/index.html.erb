@@ -8,11 +8,16 @@ REFERENCES
 
 4. Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. (2020, November 15). Tailwindcss.com; Tailwind CSS. https://tailwindcss.com/
 
-‌5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/resources/more/what-are-payment-rails
+5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/REFERENCES/more/what-are-payment-rails
 
 6. PostgreSQL Tutorial. (2021). Postgresqltutorial.com. https://www.postgresqltutorial.com/
 
 7. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
+
+8. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
+
+9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
+
 #%>
 
 
@@ -38,11 +43,9 @@ REFERENCES
         <% @main_categories.each do |category|%>
         <%= link_to category_path(category) do %>
             <div class="flex flex-col mb-4">
-                <h2 class= "text-gray-800 font-mediun text-lg text-center mb-6">
-                    <%= category.name%> </h2>
-                    <%= category.image.present? ? image_tag(category.image, class: "max-w-lg")
-                    : image_tag("http://via.placeholder.com/512")%>
-                    </div>
+                <h2 class= "text-gray-800 font-mediun text-lg text-center mb-6"><%= category.name %></h2>
+                    <%= category.image.present? ? image_tag(category.image, class: "max-w-lg") : image_tag("http://via.placeholder.com/512") %>
+            </div>
         <%end%>
         <%end%>
     </div>

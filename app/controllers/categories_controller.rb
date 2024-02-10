@@ -1,5 +1,4 @@
 =begin
-REFERENCES
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)
 
 2. Sreeram Venkitesh. (2022, October 13). How To Set Up User Authentication with Devise in a Rails 7 Application. Digitalocean.com; DigitalOcean. https://www.digitalocean.com/community/tutorials/how-to-set-up-user-authentication-with-devise-in-a-rails-7-application
@@ -18,12 +17,18 @@ REFERENCES
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
 
+
+Categories Controller 
+*setting up the root for the categories 
+*the user can click on a category on the 
+home page and take them to 
+that category
 =end
 
-class Category < ApplicationRecord
-    has_one_attached :image do |attachable|
-        attachable.variant :thumb, resize_to_limit: [50, 50]
+class CategoriesController < ApplicationController
+    def show
+        @category = Category.find(params[:id])
+        @products = @category.products
     end
-
-    has_many :products
 end
+

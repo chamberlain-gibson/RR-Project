@@ -1,4 +1,4 @@
-=begin
+/*
 REFERENCES
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)
 
@@ -18,12 +18,34 @@ REFERENCES
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
 
-=end
+Products controller javascript
+This allows the user to add products to the cart
+*/
 
-class Category < ApplicationRecord
-    has_one_attached :image do |attachable|
-        attachable.variant :thumb, resize_to_limit: [50, 50]
-    end
+import { Controller } from "@hotwired/stimulus"
 
-    has_many :products
-end
+// Connects to data-controller="products"
+export default class extends Controller {
+  // size & product values from the Products 
+  static values = {size: String, product: Object }
+
+  // Adding product values to the cart
+  addToCart() {
+    console.log("product: ", this.productValue)
+  }
+
+  // When the user selects a size & shows them the size 
+  selectSize(e){
+    this.sizeValue = e.target.value
+      const selectedSize = document.getElementById("selected-size")
+      selectedSize.innerText = 'Selected Size ${this.sizeValue}'
+    
+  }
+
+
+  /*
+  make sure the controller is connected to the show page
+  connect() {
+    console.log("connected controller")*/
+  
+}
