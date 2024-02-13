@@ -8,23 +8,34 @@ REFERENCES
 
 4. Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. (2020, November 15). Tailwindcss.com; Tailwind CSS. https://tailwindcss.com/
 
-‌5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/resources/more/what-are-payment-rails
+5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/REFERENCES/more/what-are-payment-rails
 
 6. PostgreSQL Tutorial. (2021). Postgresqltutorial.com. https://www.postgresqltutorial.com/
 
 7. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
-#%>
 
+8. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
+
+9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
+
+Orders index page
+
+%>
+
+<%# %>
 <div class="w-full">
   <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
   <% end %>
-
+  
+  <%# Separating the orders into two categories Fulfilled and Unfulfilled 
+  orders %>
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Orders</h1>
     <%= link_to "New order", new_admin_order_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
   </div>
 
+  <%# Unfulfilled orders sections on the page %>
   <h2>Unfulfilled Orders</h2>
   <div class="flex flex-col w-full">
     <div class="overlow-x-auto sm:mx-0.5 lg:mx-0.5">
@@ -47,6 +58,7 @@ REFERENCES
                 </th>
               </tr>
             </thead>
+            <%# Displaying stored information stright from the database %>
             <tbody>
               <% @not_fulfilled_orders.each do |o| %>
                 <tr class="bg-gray-50 border-b">
@@ -71,6 +83,8 @@ REFERENCES
     </div>
   </div>
 
+
+  <%# %>
   <h2>Fulfilled Orders</h2>
   <div class="flex flex-col w-full">
     <div class="overlow-x-auto sm:mx-0.5 lg:mx-0.5">
@@ -93,6 +107,7 @@ REFERENCES
                 </th>
               </tr>
             </thead>
+            <%# %>
             <tbody>
               <% @fulfilled_orders.each do |o| %>
                 <tr class="bg-gray-50 border-b">

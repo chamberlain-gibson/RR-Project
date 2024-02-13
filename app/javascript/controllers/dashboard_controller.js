@@ -46,7 +46,7 @@ export default class extends Controller {
     const context = document.getElementById('revenueChart')
 
     new Chart(context, {
-      type: 'line',
+      type: 'line', 
       data: {labels: labels,
         datasets: [{
           label: 'Revenue $',
@@ -58,7 +58,7 @@ export default class extends Controller {
         plugins: {legend: {display: false} },
       scales: 
         {x:{grid:{display: false}}, 
-        y: {border:{dash: [5,5]}, grid:{color: "#d4f3ef"},
+        y: {border:{dash: [5,5]}, grid:{color: "#008080"},
         beginAtZero: true}}
         }  
   })

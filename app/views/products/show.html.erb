@@ -30,22 +30,29 @@ Show page for the products
         <%end%>
 </div>
 
-
-<div data-controller="products" data-product-product-value="<% @product.to_json%>"
+<%# Styling for the product show %>
+<div data-controller="products" data-products-product-value= "<%= @product.to_json %>"
 class= "flex flex-col items-start max-w-sm">
+    <%# Styling for the user to click different sizes of the product, 
+    view if an item is in stock or not in stock, then be able to add 
+    that item to the cart %>
     <h1 class="font-bold text-4xl uppercase"><%= @product.name %></h1>
-    <p class= "text-2xl mt-4">$<%= (@product.price.to_d )%></p>
+    <p class= "text-2xl mt-4"> $<%= (@product.price/100.0).to_s %></p>
     <p class= "text-md py-8"><%= @product.description %></p>
     <div class="my-8">
         <p class= 'uppercase text-lg'>Size</p>
         <% @product.stocks.each do |stock|%>
         <% if stock.amount > 0 %>
-            <button value="<%= stock.size %>" class="bg-gray-200 text-gray-800
+            <%# The Admin can show the user if something is in stock from the Stocks page 
+            from that item that will be selectable %>
+            <button data-action="click->products#selectSize" value= "<%= stock.size %>" class="bg-gray-200 text-gray-800
             font-semibold py-2 px-4 rounded hover:bg-gray-300
             focus:outlin-none focus:ring-2 foucs:ring-gray-500 focus-opacity-50">
             <%= stock.size %>
             </button>
         <%else%>
+            <%# The Admin can show the user if someonething is out stock from the Stocks page 
+            it will show up as dark grey %>        
             <button disabled value="<%= stock.size %>" class="disabled:bg-gray-400 text-gray-800
             font-semibold py-2 px-4 rounded hover:bg-gray-300
             focus:outlin-none focus:ring-2 foucs:ring-gray-500 focus-opacity-50">
@@ -54,9 +61,13 @@ class= "flex flex-col items-start max-w-sm">
         <%end%>
         <%end%>
     </div>
-        <button class= "inline-flex items-centr justify-center px-5 py-3 border 
+        <%# %>
+        <div id="selected-size"></div>
+        <button data-action="click->products#addToCart" 
+        class= "inline-flex items-centr justify-center px-5 py-3 border 
         border-transparent font-medium rounded-md text-white bg-gray-600
         hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2
         focus:ring-gray-500">Add to Cart</button>
-
+        
+        </div>
     </div>

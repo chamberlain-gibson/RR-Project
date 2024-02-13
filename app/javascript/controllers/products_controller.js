@@ -32,15 +32,54 @@ export default class extends Controller {
   // Adding product values to the cart
   addToCart() {
     console.log("product: ", this.productValue)
+    const cart = localStorage.getItem("cart")
+    if (cart) {
+      // this will happen if they do already have a cart & just add that item based on the same ID
+      const cartArray = JSON.part(cart)
+      const foundIndex = cartArray.findIndex(item => item.id === 
+        this.productValue.id && item.size === this.sizeValue)
+
+        // if there is a product already in our cart we can increment the quantity
+        if (foundIndex >= 0){
+          cartArray[foundIndex].quantity = parseInt(cartArray[foundIndex].quantity) + 1
+        }
+
+        // if we did not find a product we will just push one into the cart 
+        else {
+          cartArray.push({
+            id: this.productValue.id,
+            name: this.productValue.name,
+            price: this.productValue.price,
+            size: this.sizeValue,
+            quantity: 1
+          })
+        }
+      
+        localStorage.setItem("cart", JSON.stringify(cartArray))
+    } 
+    // this is what will occur when the user add something 
+    // and they don't already have a cart 
+    else {
+      const cartArray = []
+      cartArray.push({
+        id: this.productValue.id,
+        name: this.productValue.name,
+        price: this.productValue.price,
+        size: this.sizeValue,
+        quantity: 1
+      })
+      localStorage.setItem("cart", JSON.stringify(cartArray))
+    }
   }
 
   // When the user selects a size & shows them the size 
-  selectSize(e){
-    this.sizeValue = e.target.value
-      const selectedSize = document.getElementById("selected-size")
-      selectedSize.innerText = 'Selected Size ${this.sizeValue}'
-    
+  selectSize(e) {
+      this.sizeValue = e.target.value
+      const selectedSizeEl = document.getElementById("selected-size")
+      selectedSizeEl.innerText = `Selected Size: ${this.sizeValue}`
   }
+
+
 
 
   /*
