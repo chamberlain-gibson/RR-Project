@@ -9,15 +9,18 @@ REFERENCES
 
 4. Tailwind CSS - Rapidly build modern websites without ever leaving your HTML. (2020, November 15). Tailwindcss.com; Tailwind CSS. https://tailwindcss.com/
 
-5. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/REFERENCES/more/what-are-payment-rails
+5. Form, I. (2023). Tailwind CSS Login / Sign In Form - Free Examples & Tutorial. TW Elements. https://tw-elements.com/docs/standard/forms/login-form/
 
-6. PostgreSQL Tutorial. (2021). Postgresqltutorial.com. https://www.postgresqltutorial.com/
+6. What are payment rails? A guide | Stripe. (2023). Stripe.com. https://stripe.com/REFERENCES/more/what-are-payment-rails
 
-7. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
+7. PostgreSQL Tutorial. (2021). Postgresqltutorial.com. https://www.postgresqltutorial.com/
 
-8. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
+8. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
 
-9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
+9. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
+
+10. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
+
 %>
 
 <%# This is the footer for the Home page its going underneath the "Stay Updated"
@@ -26,15 +29,6 @@ newsletter portion%>
 <footer class = "bg-gray-800 text-white">
     <div class= "max-2-6cl mac-auto px-4 py-10 md:py-20">
         <div class = "xl:grid xl:grit-cols-3 xl:gap-8">
-            <%# About section %>
-            <div class = "space-y-8 xl:col-span-1">
-                <h3 class="text-sm font-semibold text-gray-200
-                tracking-wider uppercase">About Rivers Rise</h3>
-                <p class="text-white leading-6">
-                    text text text fill in later
-                </p>
-            </div>
-
             <%# Quick Links section for the Home page link %>
             <div class= "mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
                 <div class= "md:grid md:grid-cols-2 md:gap-8">
@@ -47,13 +41,19 @@ newsletter portion%>
                                 text-base leading-6 text-white 
                                 hover:text-gray-100"%>
                             </li>
+                            <li>
+                                <%= link_to "About Us", about_path, class:"
+                                text-base leading-6 text-white 
+                                hover:text-gray-100"%>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>   
 
-            <%# COntact information section %>
-            <div class= "mt-8 mb-8 md:grid md:grid-cols-2 md:gap-8">
+            <%# Contact information section %>
+
+            <div class= "center mt-8 mb-8 md:grid md:grid-cols-2 md:gap-8">
                     <div>
                         <h3 class= "text-sm font-semibold text-gray-200
                         tracking-wider upercase">Contact</h3>

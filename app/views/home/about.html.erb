@@ -1,3 +1,4 @@
+
 <%#
 REFERENCES
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)
@@ -17,22 +18,8 @@ REFERENCES
 8. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
-
-cart page can click on this page either from the nav bar or "add to cart"
 %>
-<div class="min-h-screen">
-<h1> Cart Page </h1>
 
-<%# Display checkout error to the user %>
-<div id="errorContainer"></div>
-
-
-<%# Stimulus controller for the cart %>
-<div data-controller="cart">
-    <div class="mt-4 font-medium" id= "total"></div>
-    <button class="mt-6 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded
-    text-white" data-action="click->cart#checkout">Checkout</button>
-    <button class="py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white"
-    data-action="click->cart#clear">Clear Cart</button>
-    </div>
-</div>
+<% provide(:title, "About")%>
+<!DOCTYPE html>
+<h1>About Us Page</h1>

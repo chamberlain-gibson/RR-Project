@@ -22,32 +22,36 @@ REFERENCES
 
 <%# Navagation bar for the Home page%>
 
-<nav class = "dixed w-full top-0 bg-gray-100 z-10 py-4">
+<nav class = "fixed w-full top-0 bg-gray-100 z-10 py-4">
     <div class = "max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div class = "reflexive flex items-center justify-betwen h-16">
-            <div class= "flex-1 flex items-center justify-center sm:items-stretch
-            sm:justify-between">
+            <div class = "flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
                 <div class = "hidden sm:flex items-center justify-center">
                     <div class = "flex space-x-10">
-
-                    <%# setting up links to the root path %>
-                    <%= link_to 'Rivers Rise', root_path, class:
-                    "text-gray-500 hover:underline py-2 rounded-md
-                    text-md font-medium"%>
-                     </div>   
-                </div>
-                
-
+                            
                 <%# container for the logo %>
-                <div class= "flex-shrink-0 flex items-center">
+                <div class = "flex-shrink-0 flex items-center">
                     <%= link_to root_path do %>
                         <%= image_tag 'logo.png', class: 'hidden lg:block h-20 w-auto'%>
                     <%end%>
                 </div>
 
+                    <div class = "flex items-center justify-center">
+                    <%# setting up links to the root path %>
+                    <%= link_to "About Us", about_path, class:
+                    "text-gray-500 hover:underline py-2 rounded-md
+                    text-md font-medium"%>
+                     </div>   
+
+                     <div class = "flex items-center justify-center">
+                            <%= link_to "Log In", log_in_path, class:
+                            "text-gray-500 hover:underline py-2 rounded-md
+                            text-md font-medium"%>
+                    </div>
+
                 <%# shopping cart link %>
-                <div class = "hidden sm:flex sml:ml-6 items-center justify-center">
-                    <div class= "flex space-x-10">
+                <div class = "hidden sm:flex sml:ml items-center justify-center">
+                    <div class= "flex space-x-10 m-10">
                         <%= link_to cart_path, class: "text-gray-500 hover:underline
                         py-2 rounded-md text-md font-medium" do %>
                         <%= icon 'fa-solid', 'shopping-cart'%>

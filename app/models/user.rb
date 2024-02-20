@@ -1,5 +1,6 @@
-<%#
+=begin
 REFERENCES
+
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)
 
 2. Sreeram Venkitesh. (2022, October 13). How To Set Up User Authentication with Devise in a Rails 7 Application. Digitalocean.com; DigitalOcean. https://www.digitalocean.com/community/tutorials/how-to-set-up-user-authentication-with-devise-in-a-rails-7-application
@@ -17,22 +18,16 @@ REFERENCES
 8. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
+=end
 
-cart page can click on this page either from the nav bar or "add to cart"
-%>
-<div class="min-h-screen">
-<h1> Cart Page </h1>
+class User < ApplicationRecord
+    before_save { self.email = email.downcase }
+    validates :name,  presence: true, length: { maximum: 50 }
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    validates :email, presence: true, length: { maximum: 255 },
+                      format: { with: VALID_EMAIL_REGEX },
+                      uniqueness: true
 
-<%# Display checkout error to the user %>
-<div id="errorContainer"></div>
-
-
-<%# Stimulus controller for the cart %>
-<div data-controller="cart">
-    <div class="mt-4 font-medium" id= "total"></div>
-    <button class="mt-6 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded
-    text-white" data-action="click->cart#checkout">Checkout</button>
-    <button class="py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white"
-    data-action="click->cart#clear">Clear Cart</button>
-    </div>
-</div>
+    has_secure_password   
+     validates :password, presence: true, length: { minimum: 6}               
+end

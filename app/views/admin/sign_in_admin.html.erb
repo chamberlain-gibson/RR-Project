@@ -18,21 +18,34 @@ REFERENCES
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
 
-cart page can click on this page either from the nav bar or "add to cart"
-%>
-<div class="min-h-screen">
-<h1> Cart Page </h1>
 
-<%# Display checkout error to the user %>
-<div id="errorContainer"></div>
+#%>
 
+<main class="container mx-auto mt-28 max-w-7xl px-2 sm:px-6 lg:px-8">
+      <h2>Log in</h2>
 
-<%# Stimulus controller for the cart %>
-<div data-controller="cart">
-    <div class="mt-4 font-medium" id= "total"></div>
-    <button class="mt-6 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded
-    text-white" data-action="click->cart#checkout">Checkout</button>
-    <button class="py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white"
-    data-action="click->cart#clear">Clear Cart</button>
+<form class="new_admin" id="new_admin" action="/admins/sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="x5FhBCNfZ_B8NXyF9KbQwiPGJ587JJVEW0uKcv0E4LlZ13uCSBRAf4oWFJopfQYIYpSWDsuFukmgUP01W1HJ7A" autocomplete="off" />
+  <div class="field">
+    <label for="admin_email">Email</label><br />
+    <input autofocus="autofocus" autocomplete="email" type="email" value="" name="admin[email]" id="admin_email" />
+  </div>
+
+  <div class="field">
+    <label for="admin_password">Password</label><br />
+    <input autocomplete="current-password" type="password" name="admin[password]" id="admin_password" />
+  </div>
+
+    <div class="field">
+      <input name="admin[remember_me]" type="hidden" value="0" autocomplete="off" /><input type="checkbox" value="1" name="admin[remember_me]" id="admin_remember_me" />
+      <label for="admin_remember_me">Remember me</label>
     </div>
-</div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Log in" data-disable-with="Log in" />
+  </div>
+</form>
+
+  <a href="/admins/sign_up">Sign up</a><br />
+
+  <a href="/admins/password/new">Forgot your password?</a><br />
+  

@@ -1,8 +1,14 @@
-## Rivers Rise: Woodworking and Macrame
+# E-Commerce Website 
 
-Ruby on Rails E-Commerce Website.
-Working with Rails, Hotwire, Tailwind CSS, Stripe, and Postgresql.
+Brief Project Description
 
+## Compile/Deploy
+
+## Usage
+
+## Options
+
+## Testing
 
 ## REFERENCES
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)

@@ -88,6 +88,54 @@ export default class extends Controller {
       window.location.reload()
     }
 
+    // Checkout method 
+    // Beginning integratation of Stripe 
+    // To setup Stimulus->Stripe to fetch data from the database 
+    checkout() {
+      // testing if we are initializing the checkout properly
+      console.log("checkout")
 
-  }
+
+      const cart = JSON.parse(localStorage.getItem("cart"))
+      
+      // authenticity token so our backend knows that there is no
+      // cross or scripting attack happening 
+      const payload = {
+        authenticity_token: "",
+        cart: cart
+      }
+
+      const csrfToken = document.querySelector("[name='csrf-token'").content
+
+      // using the "fetch" method to grab information from the database
+      fetch("/checkout", {
+        method: "POST",
+
+        // CSFR token 
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken
+
+        },
+        body: JSON.stringify(payload)
+      }).then(response => {
+        //redirect the user with a url if there is an error in the response 
+        if (response.ok) {
+          response.json().then(body => {
+          window.location.href = body.url
+          })
+        } 
+        else {
+          response.json().then(body => { 
+          const errorEl = document.createdElement("div")
+          errorEl.innerText = `There was an error processing your order. ${body.error}`
+          let errorContainer = document.getElementById("errorContainer")
+          errorContainer.appendChild(errorEl)
+          })
+        }
+      })
+    
+
+    }
+    }
 

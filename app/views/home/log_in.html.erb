@@ -17,22 +17,29 @@ REFERENCES
 8. chart.js. (2023, December 4). Npm. https://www.npmjs.com/package/chart.js?activeTab=readme
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
-
-cart page can click on this page either from the nav bar or "add to cart"
 %>
-<div class="min-h-screen">
-<h1> Cart Page </h1>
 
-<%# Display checkout error to the user %>
-<div id="errorContainer"></div>
+<% provide(:title, "Log In")%>
+<!DOCTYPE html>
+  <div class="max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                    <h1 class="mb-8 text-3xl text-center md-offset-3">Log In</h1>
+                    <%= form_with(model: @user) do |f| %>
+                    <%= f.label :name %>
+                    <%= f.text_field :name %>
+                    <%= f.label :email %>
+                    <%= f.text_field :email%>
+                    <%= f.submit "Log In", class: "inline-flex items-center 
+                      justify-center px-5 py-3 border border-transparent font-medium rounded-md 
+                      text-white bg-gray-600 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2
+                      focus:ring-gray-500"%>
+                    <%end%>
+                </div>
 
-
-<%# Stimulus controller for the cart %>
-<div data-controller="cart">
-    <div class="mt-4 font-medium" id= "total"></div>
-    <button class="mt-6 py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded
-    text-white" data-action="click->cart#checkout">Checkout</button>
-    <button class="py-2 px-4 bg-gray-500 hover:bg-gray-600 rounded text-white"
-    data-action="click->cart#clear">Clear Cart</button>
-    </div>
+                <div class="text-grey-dark mt-6">
+                    Don't have an account?
+                  <%= link_to "Sign Up", signup_path, class:
+                            "hover:underline py-2 rounded-md
+                            text-md font-medium"%>
+                </div>
 </div>

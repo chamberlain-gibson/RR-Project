@@ -1,4 +1,5 @@
 =begin
+REFERENCES
 1. Jensen, C. (2023). Fullstack E-Commerce: Ruby on Rails 7, Hotwire, Tailwind, Stripe, PostgreSQL [YouTube Video]. In YouTube. https://www.youtube.com/watch?v=hURUMwdCWuI&t=1109s (https://github.com/connerj70/ecomm)
 
 2. Sreeram Venkitesh. (2022, October 13). How To Set Up User Authentication with Devise in a Rails 7 Application. Digitalocean.com; DigitalOcean. https://www.digitalocean.com/community/tutorials/how-to-set-up-user-authentication-with-devise-in-a-rails-7-application
@@ -20,23 +21,35 @@
 
 # Routes file for all the links 
 Rails.application.routes.draw do
+  get 'users/new'
   namespace :admin do #admin route
-      resources :orders #orders
-      resources :products do 
-    resources :stocks # nested stocks routes in products 
-    end
-    resources :categories #categories 
+    resources :orders #orders
+    resources :products do 
+  resources :stocks # nested stocks routes in products 
   end
-  devise_for :admins # devise method for the admin
+  resources :categories #categories 
+end
+
+devise_for :admins, controllers:{
+  sessions: "devise/sessions"
+}
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "up" => "rails/health#show", as: :rails_health_check
 
 
-  # Defines the root path route ("/")
-   root "home#index"
   
-   # After /admins/sign_in if entered the authenticated sign in 
-   authenticated :admin_user do 
+# Defines the root path route ("/")
+root "home#index"
+get "/about", to: "home#about"
+get "/log_in", to: "home#log_in"
+get "/signup", to: "users#new"
+resources :users
+
+
+
+  # After /admins/sign_in if entered the authenticated sign in 
+  authenticated :admin_user do 
     root to: "admin#index", as: :admin_root
    end
 
@@ -51,5 +64,15 @@ Rails.application.routes.draw do
 
    # Route to cart page from "Add to cart"
    get "cart" => "carts#show"
+
+   # Route for the checkout to the checkout controller
+   post "checkout" => "checkouts#create"
+
+   # Success/cancel route urls for Stripe
+   get "success" => "checkouts#sucess"
+
+   get "cancel" => "checkouts#cancel"
+
+   post "webhooks" => "webhooks#stripe"
     
   end
