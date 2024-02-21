@@ -30,6 +30,10 @@ REFERENCES
 
   <body>
     <%= render "shared/navbar"%>
+
+  <p class= "notice"><%= notice %>   
+   <p class= "alert"><%= alert %>  
+
     <%# Adjusting padding of the home page %>
     <main class="container mx-auto mt-28 max-w-7xl px-2 sm:px-6 lg:px-8">
       <%= yield %>

@@ -13,6 +13,8 @@ REFERENCES
 6. PostgreSQL Tutorial. (2021). Postgresqltutorial.com. https://www.postgresqltutorial.com/
 
 7. Beginning | Ruby on Rails Tutorial. (2014). Blackboard.com. https://alt-5fc921f3695d4.blackboard.com/bbcswebdav/courses/CSCI.33440.2022-50/rails_tutorial/beginning.html
+
+
 =end
 
 source "https://rubygems.org"
@@ -78,11 +80,17 @@ gem "carrierwave"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  #TESTING FRAMEWORK 
+  gem "rspec-rails"
+
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -91,16 +99,24 @@ group :development do
   # gem "spring"
 end
 
+#TESTING 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
+
+  # responsible for downloading the web browser 
+  gem "webdrivers", "~> 4.0", require: false 
 end
 
+# Devise gem 
 gem "devise", "~> 4.9"
 
+# Universal font from Tailwind
 gem "font-awesome-sass", "~> 6.5.1"
+
+# Secure checkout for the user 
 gem "stripe", "~> 10.8"
 
+# Allows users to go back and forth from Stripe to the website pages
 gem "pagy", "~> 6.4"

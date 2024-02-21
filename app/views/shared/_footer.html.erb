@@ -26,71 +26,53 @@ REFERENCES
 <%# This is the footer for the Home page its going underneath the "Stay Updated"
 newsletter portion%>
 
-<footer class = "bg-gray-800 text-white">
-    <div class= "max-2-6cl mac-auto px-4 py-10 md:py-20">
-        <div class = "xl:grid xl:grit-cols-3 xl:gap-8">
-            <%# Quick Links section for the Home page link %>
-            <div class= "mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2">
-                <div class= "md:grid md:grid-cols-2 md:gap-8">
-                    <div>
-                        <h3 class= "text-sm font-semibold text-gray-200
-                        tracking-wider upercase">Quick Links</h3>
-                        <ul class= "mt-4 space-y-4">
-                            <li>
-                                <%= link_to "Home", root_path, class:"
-                                text-base leading-6 text-white 
-                                hover:text-gray-100"%>
-                            </li>
-                            <li>
-                                <%= link_to "About Us", about_path, class:"
-                                text-base leading-6 text-white 
-                                hover:text-gray-100"%>
-                            </li>
-                        </ul>
+<footer class="bg-gray-800 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-10 md:py-20">
+        <table class="w-full">
+            <tr>
+                <!-- Quick Links section -->
+                <td class="pr-8 text-center">
+                    <h3 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Quick Links</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <%= link_to "Home", root_path, class: "text-base leading-6 text-white hover:text-gray-100" %>
+                        </li>
+                        <li>
+                            <%= link_to "Dashboard", new_admin_session_path, class: "text-base leading-6 text-white hover:text-gray-100" %>
+                        </li>
+                        <li>
+                            <%= link_to "About Us", about_path, class: "text-base leading-6 text-white hover:text-gray-100" %>
+                        </li>
+                    </ul>
+                </td>
+
+                <!-- Contact information section -->
+                <td class="pr-8 text-center">
+                    <h3 class="text-sm font-semibold text-gray-200 tracking-wider uppercase">Contact</h3>
+                    <ul class="mt-4 space-y-4">
+                        <li>
+                            <p class="text-base leading-6 text-white">123 Rivers Rise<br>Address City, AC 12345</p>
+                        </li>
+                        <li>
+                            <p class="text-base leading-6 text-white">Email: support@riversrise.com</p>
+                        </li>
+                        <li>
+                            <p class="text-base leading-6 text-white">Phone: (012) 345-6789</p>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+
+            <!-- Trademark Footer -->
+            <tr>
+                <td colspan="2" class="border-t border-gray-700 pt-6">
+                    <div class="max-w-6xl mx-auto px-4 py-6 md:flex md:items-center md:justify-between">
+                        <p class="mt-6 text-base leading-6 text-gray-400 md:mt-0 md:order-1">
+                            &copy; <%= Time.now.year %> Rivers Rise, Inc. All rights reserved.
+                        </p>
                     </div>
-                </div>
-            </div>   
-
-            <%# Contact information section %>
-
-            <div class= "center mt-8 mb-8 md:grid md:grid-cols-2 md:gap-8">
-                    <div>
-                        <h3 class= "text-sm font-semibold text-gray-200
-                        tracking-wider upercase">Contact</h3>
-                        <ul class= "mt-4 space-y-4">
-                            <li>
-                                <p class="text-base leading-6 text-white">
-                                123 Rivers Rise <br>    
-                                Address City, AC 12345    
-                                </p>
-                            </li> 
-                            <li>
-                                <p class="text-base leading-6 text-white">
-                                Email: support@riversrise.com    
-                                </p>
-                            </li>
-                            <li>
-                                <p class="text-base leading-6 text-white">
-                                Phone: (012) 345-6789   
-                                </p>
-                            </li>     
-                        </ul>
-                    </div>
-                </div>
-            </div>                  
-            
-
-            <%# Trademark Header %>
-            <div class="border-t border-gray-700">
-                <div class="max-w-6xl mx-suto px-4 py-6 md:flex
-                md:items-center md:justify-between">
-                <p class="mt-6 text-base leading-6 text-gray-400
-                md:mt-0 md:order-1">
-                    &copy; <%= Time.now.year %> Rivers Rise, Inc. All rights reserved.
-                </p>
-            </div>
-        
-        
-        </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </footer>

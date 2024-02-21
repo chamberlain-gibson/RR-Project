@@ -26,7 +26,7 @@ Takes 4 random of the stored categories for the user to view
 =end
 
 class HomeController < ApplicationController
-    before_action :authenticate_user!, only: [:users]
+    before_action :authenticate_user!, only: [:users], unless: :admin_sign_in?
     
     def index
         @main_categories = Category.take(4)
@@ -34,6 +34,7 @@ class HomeController < ApplicationController
 
     def about
     end
+
 
 
 end

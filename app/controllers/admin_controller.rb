@@ -30,6 +30,7 @@ class AdminController < ApplicationController
 layout 'admin'
     before_action :authenticate_admin!, only: [:admin]
 
+
 def index
     @orders = Order.where(fulfilled: false).order(created_at: :desc).take(5)
     @quick_stats = { 
