@@ -22,6 +22,8 @@ REFERENCES
 # Routes file for all the links 
 Rails.application.routes.draw do
   devise_for :users
+
+
   namespace :admin do #admin route
     resources :orders #orders
     resources :products do 
@@ -30,36 +32,28 @@ Rails.application.routes.draw do
   resources :categories #categories 
 end
 
-devise_for :admins, controllers:{
-  sessions: "devise/sessions"
-}
+devise_for :admins
 
+  # Defines the root path route ("/")
+  root "home#index"
+  get "/about", to: "home#about"
+
+
+  # After /admins/sign_in if entered the authenticated sign in 
+  authenticated :admin_user do 
+    root to: "admin#index", as: :admin_root
+    end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "up" => "rails/health#show", as: :rails_health_check
 
-
-  
-# Defines the root path route ("/")
-root "home#index"
-get "/about", to: "home#about"
-
-  # After /admins/sign_in if entered the authenticated sign in 
-  authenticated :admin_user do 
-    root to: "admin#sign_in", as: :admin_root
-   end
-
-  # For unauthenticated users 
-  
-
-   #Show front end point for our categories on the Home page
+  #Show front end point for our categories on the Home page
    resources :categories, only: [:show]
 
    #Show front end point for our products from categories on the Home page
    resources :products, only: [:show]
 
-   # After sign in the user is taken to the admin index
-   get "admin" => "admin#index"
+   get "/admin", to: "admin#index"
 
    # Route to cart page from "Add to cart"
    get "cart" => "carts#show"
