@@ -3,7 +3,17 @@
 Brief Project Description
 
 ## Compile/Deploy
+To get started with the app, clone the repo and then install the needed gems:
 
+To compile the application:
+```
+$ bin/rails server
+
+```
+To deploy the application:
+```
+fly deploy
+```
 
 
 ## Usage
@@ -13,7 +23,11 @@ Brief Project Description
 
 
 ## Testing
+The standard Ruby on Rails testing format
+```
+$ bin/rails test
 
+```
 
 
 ## REFERENCES

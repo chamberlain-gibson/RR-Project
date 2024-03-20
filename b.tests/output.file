@@ -1,0 +1,28 @@
+
+== Brakeman Report ==
+
+Application Path: /home/cgibson/RR-Project
+Rails Version: 7.0.8.1
+Brakeman Version: 6.1.2
+Scan Date: 2024-03-19 15:50:59 -0400
+Duration: 2.987706999 seconds
+Checks Run: BasicAuth, BasicAuthTimingAttack, CSRFTokenForgeryCVE, ContentTag, CookieSerialization, CreateWith, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, DynamicFinders, EOLRails, EOLRuby, EscapeFunction, Evaluation, Execute, FileAccess, FileDisclosure, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONEncoding, JSONEntityEscape, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, MimeTypeDoS, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NestedAttributesBypass, NumberToCurrency, PageCachingCVE, Pathname, PermitAttributes, QuoteTableName, Ransack, Redirect, RegexDoS, Render, RenderDoS, RenderInline, ResponseSplitting, RouteDoS, SQL, SQLCVEs, SSLVerify, SafeBufferManipulation, SanitizeConfigCve, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionManipulation, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, SprocketsPathTraversal, StripTags, SymbolDoSCVE, TemplateInjection, TranslateBug, UnsafeReflection, UnsafeReflectionMethods, ValidationRegex, VerbConfusion, WeakRSAKey, WithoutProtection, XMLDoS, YAMLParsing
+
+== Overview ==
+
+Controllers: 12
+Models: 8
+Templates: 51
+Errors: 1
+Security Warnings: 0
+
+== Warning Types ==
+
+
+== Errors ==
+
+Error: app/controllers/webhooks_controller.rb:39 :: parse error on value "webhook_secret" (tSYMBOL) Could not parse app/controllers/webhooks_controller.rb
+Location: /home/cgibson/.rvm/gems/ruby-3.1.2/gems/racc-1.7.3/lib/racc/parser.rb:540:in `on_error'
+
+No warnings found
+
