@@ -120,3 +120,7 @@ gem "stripe", "~> 10.8"
 
 # Allows users to go back and forth from Stripe to the website pages
 gem "pagy", "~> 6.4"
+
+# Attached files are saved to the filesystem and referenced in the browser 
+# by an easily understandable specification, which has sensible and useful defaults.
+gem "paperclip", "~> 6.0.0"
