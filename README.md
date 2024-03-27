@@ -1,6 +1,5 @@
 # Rivers Rise E-Commerce Website 
-My clients, Bobby and Narie Gibson, for their company, Rivers Rise, requested a prototype e-commerce website with a functioning cloud-based database to store their products. Rivers Rise produces custom wood and macramé pieces that are made specifically for their customers. The website will entail different tabs for the types of products, a business information page, a sign-in account page, and an admin dashboard.
-
+My clients, Rivers Rise, requested a prototype e-commerce website with a functioning cloud-based database to store their products. Rivers Rise produces custom wood and macramé pieces that are made specifically for their customers. The website will entail different tabs for the types of products, a business information page, a sign-in account page, and an admin dashboard.
 
 ## Compile/Deploy
 1. To compile the application:
@@ -12,10 +11,16 @@ $ bin/rails server
 ```
 fly deploy
 ```
- 
 
 ## Usage
+Features:
+1. Product Catalog: Browse through a diverse range of wood products and macramé items, including furniture, decor, plant hangers, and wall hangings.
+2. Responsive Design: Access the website from any device - desktop, tablet, or smartphone - with a responsive design optimized for all screen sizes.
+3. Secure Checkout: Seamless and secure checkout process with multiple payment options, including credit/debit cards, PayPal, and other online payment gateways.
+4. Shipping and Delivery: Real-time shipping calculations based on location and preferred delivery method. Track orders in transit.
+5. Admin Dashboard: Administrative controls for uploading new products, checking orders, and maintains sales activity tracking.
 
+This e-commerce website offers a seamless shopping experience for customers interested in high-quality wood products and macramé items. Built on Ruby on Rails and utilizing various software packages, it provides a user-friendly interface, robust functionality, and secure transactions, catering to the needs of both buyers and sellers in the artisanal goods market.
 
 ## Options
 
