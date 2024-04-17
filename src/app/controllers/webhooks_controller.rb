@@ -24,9 +24,7 @@ REFERENCES
 class WebhooksController < ApplicationController
     require 'rubygems'
     require 'stripe'
-
-
-    # forgery protection from stripe 
+   # forgery protection from stripe 
     skip_forger_protection
     
     #
