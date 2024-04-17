@@ -18,7 +18,6 @@ REFERENCES
 
 9. Stimulus Handbook. (2023). Hotwired.dev. https://stimulus.hotwired.dev/handbook/origin
 
-
 =end
 
 class WebhooksController < ApplicationController

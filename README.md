@@ -2,15 +2,12 @@
 My clients, Rivers Rise, requested a prototype e-commerce website with a functioning cloud-based database to store their products. Rivers Rise produces custom wood and macramé pieces that are made specifically for their customers. The website will entail different tabs for the types of products, a business information page, a sign-in account page, and an admin dashboard.
 
 ## Compile/Deploy
-1. To compile the application:
+To compile the application:
 ```
 $ bin/rails server
 
 ```
-2. To deploy the application:
-```
-fly deploy
-```
+
 
 ## Usage
 Features:
@@ -23,7 +20,11 @@ Features:
 This e-commerce website offers a seamless shopping experience for customers interested in high-quality wood products and macramé items. Built on Ruby on Rails and utilizing various software packages, it provides a user-friendly interface, robust functionality, and secure transactions, catering to the needs of both buyers and sellers in the artisanal goods market.
 
 ## Options
+Another way to compile the application:
+```
+$ rails server
 
+```
 
 ## Testing
 The standard Ruby on Rails testing format:
